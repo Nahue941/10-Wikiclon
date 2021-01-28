@@ -16,7 +16,7 @@ router.get(`/:id`, (req,res)=>{
     .then(arrProm => {
         let user = arrProm[0];
         let pages = arrProm[1];
-        res.render(`index`, {users: user, pages: pages}) //RENDERIZAR NOMBRE DE AUTOR EN INDEX
+        res.render(`index`, {user: user, pages: pages, showName: true}) //RENDERIZAR NOMBRE DE AUTOR EN INDEX
     })
 });
 

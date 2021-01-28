@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.8.12",
     "express": "^4.17.1",
+    "marked": "^1.2.8",
     "morgan": "^1.10.0",
     "nunjucks": "^3.2.2",
+    "nunjucks-autoescape": "^1.0.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.5.0"

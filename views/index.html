@@ -2,6 +2,9 @@
 
 {% block content %}
   <h3>Pages</h3>
+  {% if showName %}
+    <h4>by {{ user.name }}</h4>
+  {% endif %}
   {% if showTag %}
   <ul id="tag">Tags:
     {% for tag in tags %}
@@ -17,4 +20,9 @@
       {% endfor %}
     </ul>
   </ul>
+
+  {% if deleteWiki %}
+    <h3>The wiki has been deleted.</h3>
+  {% endif %}
+
 {% endblock %}

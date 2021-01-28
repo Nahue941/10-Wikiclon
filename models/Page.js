@@ -1,4 +1,5 @@
 var S = require('sequelize');
+const marked = require("marked");
 var db = new S('postgres://localhost/wiki', {
     logging: false
 });
@@ -21,7 +22,7 @@ Page.init({
         allowNull: false
     },
     content:{ 
-        type: S.STRING,
+        type: S.STRING(2000),
         allowNull: false
     },
     status: {
@@ -35,7 +36,14 @@ Page.init({
         get(){
             return `/wiki/` + this.urltitle;
         }
+    },
+    renderedContent: {
+        type: S.VIRTUAL,
+        get(){
+            return marked(this.content)
+        }
     }
+
 },{ sequelize: db, modelName: 'page' });
 
 Page.findByTag = function(arr) {
@@ -50,13 +58,27 @@ Page.findByTag = function(arr) {
 
 };
 
+Page.prototype.findSimilar = function(){
+    return Page.findAll({
+        where: {
+                tags: {
+                    [S.Op.ne]: this.tags
+                },
+                urltitle: {
+                    [S.Op.ne]: this.urltitle
+                }
+        }
+        
+    })
+};
+
+
 Page.addHook('beforeValidate', (page) => {
     page.urltitle = generateUrlTitle(page.title);
   });
 
 Page.addHook('beforeCreate', (page) => {
     page.tags = page.tags.match(/[A-Za-z0-9]+/g);
-    console.log(page.tags)
   });
 
 module.exports = Page;
