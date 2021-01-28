@@ -7,7 +7,7 @@ router.get(`/`, (req,res)=>{
 
 })
 
-router.get(`/:id`, (req,res)=>{
+router.get(`/:id`, (req,res)=>{ 
     let userProm = User.findByPk(req.params.id);
     let pageProm = Page.findAll({where: {authorId : req.params.id}});
 
@@ -16,7 +16,7 @@ router.get(`/:id`, (req,res)=>{
     .then(arrProm => {
         let user = arrProm[0];
         let pages = arrProm[1];
-        res.render(`index`, {users: user, pages: pages}) 
+        res.render(`index`, {users: user, pages: pages}) //RENDERIZAR NOMBRE DE AUTOR EN INDEX
     })
 });
 

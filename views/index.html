@@ -2,6 +2,13 @@
 
 {% block content %}
   <h3>Pages</h3>
+  {% if showTag %}
+  <ul id="tag">Tags:
+    {% for tag in tags %}
+      <li><a href="/search/{{ tag }}">#{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
   <hr>
   <ul class="list-unstyled">
     <ul>

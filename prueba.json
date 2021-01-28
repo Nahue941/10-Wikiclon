@@ -1,0 +1,84 @@
+{
+    dataValues: {
+      id: 1,
+      title: 'Mi primer blog',
+      urltitle: 'Mi_primer_blog',
+      content: 'Este es el contenido de mi primer blog',
+      status: 'open',
+      createdAt: 2021-01-27T22:44:29.507Z,
+      updatedAt: 2021-01-27T22:44:29.513Z,
+      authorId: 1,
+      author: user {
+        dataValues: [Object],
+        _previousDataValues: [Object],
+        _changed: Set(0) {},
+        _options: [Object],
+        isNewRecord: false
+      }
+    },
+    _previousDataValues: {
+      id: 1,
+      title: 'Mi primer blog',
+      urltitle: 'Mi_primer_blog',
+      content: 'Este es el contenido de mi primer blog',
+      status: 'open',
+      createdAt: 2021-01-27T22:44:29.507Z,
+      updatedAt: 2021-01-27T22:44:29.513Z,
+      authorId: 1,
+      author: user {
+        dataValues: [Object],
+        _previousDataValues: [Object],
+        _changed: Set(0) {},
+        _options: [Object],
+        isNewRecord: false
+      }
+    },
+    _changed: Set(0) {},
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      include: [ [Object] ],
+      includeNames: [ 'author' ],
+      includeMap: { author: [Object] },
+      includeValidated: true,
+      attributes: [
+        'id',        'title',
+        'urltitle',  'content',
+        'status',    'route',
+        'createdAt', 'updatedAt',
+        'authorId'
+      ],
+      raw: true
+    },
+    isNewRecord: false,
+    author: user {
+      dataValues: {
+        id: 1,
+        name: 'Pepe',
+        email: 'pepe@gmail.com',
+        createdAt: 2021-01-27T22:44:29.491Z,
+        updatedAt: 2021-01-27T22:44:29.491Z
+      },
+      _previousDataValues: {
+        id: 1,
+        name: 'Pepe',
+        email: 'pepe@gmail.com',
+        createdAt: 2021-01-27T22:44:29.491Z,
+        updatedAt: 2021-01-27T22:44:29.491Z
+      },
+      _changed: Set(0) {},
+      _options: {
+        isNewRecord: false,
+        _schema: null,
+        _schemaDelimiter: '',
+        include: undefined,
+        includeNames: undefined,
+        includeMap: undefined,
+        includeValidated: true,
+        raw: true,
+        attributes: undefined
+      },
+      isNewRecord: false
+    }
+  }

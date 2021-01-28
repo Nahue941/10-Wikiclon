@@ -27,6 +27,9 @@ Page.init({
     status: {
         type: S.ENUM('open', 'closed')
     },
+    tags: {
+        type: S.ARRAY(S.STRING)
+    },
     route:{
         type: S.VIRTUAL,
         get(){
@@ -35,8 +38,26 @@ Page.init({
     }
 },{ sequelize: db, modelName: 'page' });
 
+Page.findByTag = function(arr) {
+    
+    return this.findAll({
+        where : {
+                tags: {
+                    [S.Op.overlap]: arr //machea un grupo de posibilidades
+                }
+            }    
+        });
+
+};
+
 Page.addHook('beforeValidate', (page) => {
     page.urltitle = generateUrlTitle(page.title);
   });
 
+Page.addHook('beforeCreate', (page) => {
+    page.tags = page.tags.match(/[A-Za-z0-9]+/g);
+    console.log(page.tags)
+  });
+
 module.exports = Page;
+

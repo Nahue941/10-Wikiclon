@@ -1,6 +1,7 @@
 const router = require(`express`).Router();
 const wiki = require(`./wiki`);
 const user = require(`./user`);
+const search = require(`./search`)
 const Page = require(`../models/Page`);
 
 
@@ -12,7 +13,7 @@ router.get(`/`,(req, res)=>{
     //res.render(`index`, {})
 });
 
-
+router.use(`/search`,search)
 router.use(`/wiki`,wiki);
 router.use(`/users`,user);
 
