@@ -97,9 +97,10 @@ router.post(`/:urlTitle/edit`, (req, res)=>{
     Page.findOne({where: {urltitle: req.params.urlTitle}})
         .then((page)=>{
             for (let key in req.body) page[key] = req.body[key]
+            page.tags = page.tags.match(/[A-Za-z0-9]+/g)
             return page.save()
         })
-        .then(page => res.redirect(page.route)) 
+        .then(updatedPage => res.redirect(updatedPage.route)) 
        
 })
 
