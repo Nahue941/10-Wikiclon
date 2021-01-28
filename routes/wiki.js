@@ -98,6 +98,7 @@ router.post(`/:urlTitle/edit`, (req, res)=>{
         .then((page)=>{
             for (let key in req.body) page[key] = req.body[key]
             page.tags = page.tags.match(/[A-Za-z0-9]+/g)
+            page.urltitle = page.title.replace(/\s+/g, '_').replace(/\W/g, '')
             return page.save()
         })
         .then(updatedPage => res.redirect(updatedPage.route)) 
